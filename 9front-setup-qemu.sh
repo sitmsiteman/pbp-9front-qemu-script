@@ -9,6 +9,10 @@ BIOS="$VMDIR/u-boot.bin"
 DISK="$VMDIR/9front.qcow2"
 RELEASE="9front-11091.arm64"
 
+if [ ! -f $BIOS ]; then
+	cp u-boot.bin $BIOS
+fi
+
 if [ ! -f $RELEASE.qcow2 ]; then
 	wget -c "https://9front.org/iso/$RELEASE.qcow2.gz"
 	gunzip -k "$RELEASE.qcow2.gz"
