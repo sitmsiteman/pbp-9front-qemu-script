@@ -4,4 +4,4 @@
 
 - Do not blindly run the scripts. Modify env variables.
 
-- No KVM accels. (I don't know why it doesn't work. maybe big.little architecture?)
+- No KVM accels on Alpine Linux (or PMOS).
