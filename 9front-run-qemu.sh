@@ -8,8 +8,7 @@ CORES=2
 BIOS="$VMDIR/u-boot.bin"
 DISK="$VMDIR/9front.qcow2"
 
-
-qemu-system-aarch64 -M virt-2.12,gic-version=3 \
+qemu-system-aarch64 -M virt-2.12,gic-version=3,accel=kvm \
 	-cpu host -m $RAM -smp $CORES \
 	-bios $BIOS \
 	-drive file=$DISK,if=none,id=disk \
