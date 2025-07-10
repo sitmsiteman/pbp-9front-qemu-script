@@ -22,8 +22,8 @@ if [ ! -f $DISK ]; then
 	qemu-img create -f qcow2 $DISK $IMGSIZE
 fi 
 
-qemu-system-aarch64 -M virt-2.12,gic-version=3 \
-	-cpu cortex-a72 -m $RAM -smp $CORES \
+qemu-system-aarch64 -M virt-2.12,gic-version=3,accel=kvm \
+	-cpu host -m $RAM -smp $CORES \
 	-bios $BIOS \
 	-drive file=$RELEASE.qcow2,if=none,id=installer \
 	-device virtio-blk-pci-non-transitional,drive=installer \
